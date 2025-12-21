@@ -19,7 +19,8 @@ public static class Script
     public static void Exec(IStepContext context)
     {
         // 使用 context 读写动作变量、执行操作等
-        context.SetVariable("result", "ok");
+        // 请使用文档中声明的接口方法 GetVarValue/SetVarValue
+        context.SetVarValue("result", "ok");
     }
 
     // 或者 有返回值
@@ -34,6 +35,25 @@ public static class Script
 - **注意**：普通模式 v2 的 `Exec(IStepContext)` 与低权限模式的 Exec 声明不同，**不可混用**。
 
 ---
+
+## 普通模式（在 Quicker 进程中执行）
+代码直接在 Quicker 进程中执行。这时候可以通过 `context` 参数访问动作变量。
+
+```csharp
+// 示例：在普通模式下读取/写入动作变量
+using Quicker.Public;
+
+public static class InProcessExample
+{
+    public static void Exec(IStepContext context)
+    {
+        var oldValue = context.GetVarValue("varName");
+        // 可以在脚本中显示或操作该值
+        System.Windows.Forms.MessageBox.Show(oldValue as string);
+        context.SetVarValue("varName", "从脚本输出的内容。");
+    }
+}
+```
 
 ## 模块参数说明 ⚙️
 - **脚本内容**：要运行的 C# 源代码（含 `Exec(IStepContext)`）。
@@ -78,12 +98,12 @@ public static class Example
     public static object Exec(IStepContext context)
     {
         // 读取变量
-        var name = context.GetVariable("Name");
+        var name = context.GetVarValue("Name");
 
         // 写入变量
-        context.SetVariable("Greeting", "Hello " + name);
+        context.SetVarValue("Greeting", "Hello " + name);
 
-        return context.GetVariable("Greeting");
+        return context.GetVarValue("Greeting");
     }
 }
 ```
