@@ -54,10 +54,11 @@ public static object Exec(Quicker.Public.IStepContext context)
 ---
 
 ## 可选执行线程值（runOnUiThread 对应说明）🧵
-- `ui`：在 UI 线程执行（慎用长耗时操作）。
-- `background_mta`：后台 MTA 线程（推荐用于非 UI/COM 操作）。
-- `background_sta`：使用共享 STA 线程（短时 COM/剪贴板操作）。
-- `background_sta_isolated`：创建独立 STA 线程（适合长时间等待且需 STA 的任务）。
+- `auto`：自动选择（Quicker 根据规则判断需要使用哪个线程）。
+- `ui`：在 UI 线程执行（主界面线程，慎用长耗时操作）。
+- `background`：后台线程（MTA），推荐用于非 UI/COM 操作。
+- `sta`：共享 STA 线程（适合短时的 COM/剪贴板操作）。
+- `staLongRun`：独立 STA 线程（适合需要长时间等待且需 STA 的任务）。
 
 ---
 
@@ -85,7 +86,7 @@ public static object Exec(Quicker.Public.IStepContext context)
 > {{CSharpCode}}
 > ```
 >
-> - 执行线程：`{{RunOnUiThread}}`（例如 `ui` 或 `background_mta`）
+> - 执行线程：`{{RunOnUiThread}}`（例如 `auto`, `ui`, `background`, `sta`, `staLongRun`）
 > - LimitSingleInstance：`{{LimitSingleInstance}}`（true/false）
 >
 > 请输出最终的 JSON 对象。
