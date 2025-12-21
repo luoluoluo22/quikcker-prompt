@@ -20,7 +20,7 @@
 ## 文档 📚
 下面是仓库内与 Quicker 动作开发相关的文档：
 
-- 普通模式 v2 (Roslyn) 说明：`docs/普通模式-v2-Roslyn.md`
+- 在Quicker中运行C#代码规范：`docs/在Quicker中运行CSharp代码规范.md`
 - AI 提示词：生成 Quicker 动作 JSON：`docs/提示词-生成-Quicker-动作JSON.md`
 - 发布动作模板（UI 采集器）：`docs/发布动作-模板-UI采集器.md`
 
