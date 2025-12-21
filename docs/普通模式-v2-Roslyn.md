@@ -47,6 +47,7 @@ public static class Script
   - 后台线程（MTA）：无 UI/COM 场景优先使用
   - 后台线程（STA）：共享 STA 线程，用于短时 COM/剪贴板操作
   - 后台线程（STA 独立线程）：为长期需 STA 的任务创建独立线程
+- **对应 `runOnUiThread` 的参数值**：`auto`（自动）、`ui`（UI 线程）、`background`（后台线程/MTA）、`sta`（共享 STA）、`staLongRun`（独立 STA 长运行）。
 - **失败后停止**：脚本抛异常时是否停止当前动作（布尔选项）。
 - **等待返回**：是否等待 `Exec` 执行完并取回返回值（若不等待，“返回内容”为空）。
 
