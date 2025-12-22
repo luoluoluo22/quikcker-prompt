@@ -30,7 +30,7 @@ JSON
     {
       "Key": "text",
       "Type": 0,
-      "Desc": "Return value receiver",
+      "Desc": "Result Receiver",
       "DefaultValue": "",
       "SaveState": false
     }
@@ -45,17 +45,18 @@ JSON
         "runOnUiThread": { "Value": "auto", "VarKey": null },
         "stopIfFail": { "Value": "1", "VarKey": null }
       },
-      "OutputParams": {
-        "isSuccess": null,
-        "rtn": "text",
-        "errMessage": null
+      "OutputParams": { "isSuccess": null, "rtn": "text", "errMessage": null },
+      "Note": "Core Logic"
+    },
+    {
+      "StepRunnerKey": "sys:stop",
+      "InputParams": {
+        "method": { "Value": "default", "VarKey": null },
+        "isError": { "Value": "0", "VarKey": null },
+        "return": { "Value": null, "VarKey": "text" },
+        "showMessage": { "Value": "", "VarKey": null }
       },
-      "IfSteps": null,
-      "ElseSteps": null,
-      "Note": "Core Logic",
-      "Disabled": false,
-      "Collapsed": false,
-      "DelayMs": 0
+      "Note": "Return Result"
     }
   ]
 }
@@ -94,3 +95,9 @@ Generate: Create the .json and .cs files with appropriate content.
 Execute: Run the command line to trigger the build.
 
 Feedback: Report the result based on the standard output (e.g., "Updated successfully", "Action ID: ...").
+
+Step 4: Run & Test Using the extracted ID, execute the command to launch the newly created action.
+
+Command: "C:\Program Files\Quicker\QuickerStarter.exe" -c runaction:{{EXTRACTED_ID}}
+
+
