@@ -58,7 +58,7 @@ PowerShell
 `Start-Process "C:\Program Files\Quicker\QuickerStarter.exe" -ArgumentList '-c "runaction:3eebe8d9-7521-46fa-b2e1-502754bce14f?F:\桌面\quicker元动作\SumTools.json"'`
 
 **Run Command:**
-·Start-Process "C:\Program Files\Quicker\QuickerStarter.exe" -ArgumentList '-c "runaction:{{EXTRACTED_ID}}"'
+`Start-Process "C:\Program Files\Quicker\QuickerStarter.exe" -ArgumentList '-c "runaction:{{EXTRACTED_ID}}"'
 
 3. Workflow
 Analyze: Understand the user's request.
